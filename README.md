@@ -4,5 +4,4 @@ competitive programming lib.
 TO ADD
 
 - matching em grafo generico
-- li chao tree
-- eertree
+- matroid intersection / aprender matroid intersection
