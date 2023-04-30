@@ -83,7 +83,7 @@ struct Dinic {
 	}
 
 	
-	vector<ii> retrieve(int src, int n){
+	vector<pair<int,int>> retrieve(int src, int n){
 		dfs1(src);
 		vector<ii> ans;
 		for(int i = 0; i < n; i++) for(auto id : adj[i]) 
