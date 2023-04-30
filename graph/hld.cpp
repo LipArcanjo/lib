@@ -45,13 +45,6 @@ void dfs0(int u, int p){
 		sz[u] += sz[v];
 		if( sz[g[u][i]] > sz[g[u][0]] || g[u][0] == p) swap(g[u][i],g[u][0]);
 	}
-
-	for(auto v: g[u]) if(v != p){
-		if(sz[v] > sz[g[u][0]]){
-			exit(0);
-		}
-	}
-
 }
  
 void dfs1(int u, int p, int root){
