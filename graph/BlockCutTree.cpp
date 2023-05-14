@@ -1,4 +1,6 @@
 /*source: https://github.com/SMiles02/CompetitiveProgramming/blob/master/Templates/Graph%20Theory/Block%20Cut%20Tree/block_cut_tree.cpp
+Im not sure that it is right to add a edge from c to a bc that he is
+not in
 */
 
 struct block_cut_tree {
