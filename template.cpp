@@ -9,7 +9,11 @@ using namespace std;
 #define mp make_pair
 #define fi first
 #define se second
-#define dbg(x) cout << "[" << #x << "]: " << x << endl;
+
+void dbg_out() { cerr << endl; }
+template <typename H, typename... T>
+void dbg_out(H h, T... t) { cerr << ' ' << h; dbg_out(t...); }
+#define dbg(...) { cerr << #__VA_ARGS__ << ':'; dbg_out(__VA_ARGS__); }
 
 using ll = long long;
 using pi = pair<int,int>;
