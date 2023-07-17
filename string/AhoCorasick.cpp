@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
 /*
 	Complexidade: O(mk), one k é o tamanho do alfabeto e m eh o numero de strings. Mudar de map pra array caso k for muito grande
 
