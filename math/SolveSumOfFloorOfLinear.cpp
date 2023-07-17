@@ -16,18 +16,6 @@ ll sum_of_floor(ll n, ll m, ll a, ll b) {
         ans += n * (b / m);
         b %= m;
     }
-
-    /**
-     * 線分の端点を、y座標が整数になるようにちょっとずらす -> 90度回転
-     * y座標: (b / m, (an + b) / m) -> (0, y_max)
-     * x座標: (0, n) -> (-b / a, x_max / a)
-     * 
-     * 端点をずらすことで答えは (n - ceil(x_max / a)) * y_max 減る
-     * 
-     * 90度回転する
-     * (m / a) * x + (b2 / a) = y_max
-     */
-
     ll y_max = (a * n + b) / m, x_max = (y_max * m - b);
     if (y_max == 0) return ans;
     ans += (n - (x_max + a - 1) / a) * y_max;
