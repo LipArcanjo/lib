@@ -2,8 +2,6 @@
 ecnerwala's code , from https://codeforces.com/contest/1558/submission/126874038
 */
 
-#include<bits/stdc++.h>
-
 static const uint64_t FIXED_RANDOM = std::chrono::steady_clock::now().time_since_epoch().count();
 std::mt19937 mt(FIXED_RANDOM);
 struct treap_node {
@@ -81,8 +79,4 @@ treap_node* find(treap_node *a, int y){
 		b = find(a->c[0], y);
 	}
 	return b;
-}
-
-int main(){
-	return 0;
 }

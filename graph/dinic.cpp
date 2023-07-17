@@ -1,11 +1,6 @@
 /*
 https://github.com/icmcgema/icpc-notebook/
 */
-using ii = pair<int,int>;
-int emplace b
-
-
-
 struct Dinic {
 	long long flow_inf = 1e18;
  
@@ -72,24 +67,5 @@ struct Dinic {
 			while (long long pushed = dfs(src, snk, flow_inf)) f += pushed;
 		}
 		return f;
-	}
-
-	void dfs1(int u){
-		if(vis[u]) return;
-		vis[u] = 1;
-		for(auto id : adj[u]) if(id%2 == 0){
-			if(edges[id].cap - edges[id].flow >= 1) dfs1(edges[id].to);
-		}
-	}
-
-	
-	vector<pair<int,int>> retrieve(int src, int n){
-		dfs1(src);
-		vector<ii> ans;
-		for(int i = 0; i < n; i++) for(auto id : adj[i]) 
-			if(id%2 == 0 && vis[i] == 1 && vis[edges[id].to] == 0)
-				ans.pb( mp(i, edges[id].to));
-		
-		return ans;
 	}
 };

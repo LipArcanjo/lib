@@ -3,8 +3,6 @@ funciona.
 
 tirado do video no youtube do codechef
 */
-const int MOD = 998244353;
-
 int add(int a, int b){
     a += b;
 
@@ -71,7 +69,7 @@ int primitive_root(int p){
     return -1;
 }
 
-void ntt( vi &a, ll n,  ll x , bool invert ){
+void ntt( vector<int> &a, ll n,  ll x , bool invert ){
 
     ll ctzll_n = __builtin_ctzll(n);
     for(int i = 0; i < n; i++){
@@ -114,7 +112,7 @@ void ntt( vi &a, ll n,  ll x , bool invert ){
     return;
 }
 
-void poly_multiplication( vi &a, vi &b, vi &c, int p_root = 0){
+void poly_multiplication( vector<int> &a, vector<int> &b, vector<int> &c, int p_root = 0){
 
     ll n = 1;
 
@@ -127,10 +125,10 @@ void poly_multiplication( vi &a, vi &b, vi &c, int p_root = 0){
 
     }
 
-    vi fa(a.begin(), a.end());
+    vector<int> fa(a.begin(), a.end());
     fa.resize(n,0);
 
-    vi fb(b.begin(), b.end());
+    vector<int> fb(b.begin(), b.end());
     fb.resize(n,0);
 
     ll x = pw(p_root, (MOD - 1)/n);
