@@ -1,5 +1,3 @@
-const int MAXN = 1e5 + 5;
-
 vector<int> g[MAXN];
 int morto[MAXN];
 int sz[MAXN];
