@@ -4,7 +4,7 @@ so garanto que compila
 cp-algorithms
 */
 
-vpi g[MAXN];
+vector<pair<int,int>> g[MAXN];
 
 bool SPFA(int n, int v0, vector<int> &d, vector<int> &p){
 	d.assign(n,INF);

@@ -1,4 +1,5 @@
- const int N = 4e5;  // limit for array size
+//SEG TREE
+const int N = 4e5;  // limit for array size
 int nn;  // array size
 int t[2 * N];
 int vi[MAXN];
@@ -27,6 +28,8 @@ int query(int l, int r) {  // sum on interval [l, r)
   }
   return res;
 }
+
+//HLD
  
 vector<int> g[MAXN];
  
