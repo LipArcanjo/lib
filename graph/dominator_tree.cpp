@@ -53,7 +53,7 @@ void dfs0(int u)
  
 void dominator_tree(int source, int n){
 
-    forn(i,n+1){
+    for(int i = 0; i <= n; i++){
         rev[i] = -1;
     }
 
