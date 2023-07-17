@@ -1,5 +1,3 @@
-const int MOD = 1e9+7; //998244353;
-
 int add(int a, int b){
     a += b;
     if( a >= MOD) a -= MOD;
