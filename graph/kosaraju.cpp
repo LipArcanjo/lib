@@ -5,15 +5,16 @@ feito pelo fakhoury
 */
 
 
-vi g[MAXN];
-vi gr[MAXN];
+vector<int> g[MAXN];
+vector<int> gr[MAXN];
 int vis0[MAXN];
 int vis1[MAXN];
+int num_color = 0;
 
 int color[MAXN];
-vi sameColor[MAXN];
-vi scc[MAXN];
-vi order;
+vector<int> sameColor[MAXN];
+vector<int> scc[MAXN];
+vector<int> order;
 
 void dfs0(int u){
 
@@ -64,6 +65,7 @@ void kosaraju(int n){
         }
 
     }
+	num_color = cur_color;
 
     //build condensed graph
     for(int c = 1; c <= cur_color; c++ ){
