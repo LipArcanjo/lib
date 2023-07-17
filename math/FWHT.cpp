@@ -12,7 +12,7 @@
  */
 #pragma once
 
-void FST(vi& a, bool inv) {
+void FST(vector<int>& a, bool inv) {
 	for (int n = sz(a), step = 1; step < n; step *= 2) {
 		for (int i = 0; i < n; i += 2 * step) rep(j,i,i+step) {
 			int &u = a[j], &v = a[j + step]; tie(u, v) =
@@ -23,7 +23,7 @@ void FST(vi& a, bool inv) {
 	}
 	// if (inv) for (int& x : a) x /= sz(a); // XOR only /// include-line
 }
-vi conv(vi a, vi b) {
+vector<int> conv(vector<int> a, vector<int> b) {
 	FST(a, 0); FST(b, 0);
 	rep(i,0,sz(a)) a[i] *= b[i];
 	FST(a, 1); return a;
