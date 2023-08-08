@@ -1,3 +1,4 @@
+//from http://morris821028.github.io/2015/07/11/uva-11476/
 using u64 = uint64_t;
 using u128 = __uint128_t;
 
