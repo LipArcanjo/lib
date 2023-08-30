@@ -224,7 +224,7 @@ public:
 
 	/*Interseccao de dois circulos
 	OBS: se ha infinitas interseccoes retorna o vetor vazio
-	OBS: se existe só um ponto retorna 2 pontos iguais*/
+	OBS: se existe soh um ponto retorna 2 pontos iguais*/
 	vector <Point> intersect (Circle b) {
 		vector <Point> ret;
 		Point c1 = this->c, c2 = b.c;

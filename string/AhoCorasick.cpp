@@ -1,15 +1,3 @@
-/*
-	Complexidade: O(mk), one k é o tamanho do alfabeto e m eh o numero de strings. Mudar de map pra array caso k for muito grande
-
-	Aplicações, de acordo com o cp-algorithms:
-
-	- Find all strings from a given set in a text (acha o numero de ocorrencias de cada string)
-	- Finding the lexicographical smallest string of a given length that doesn't match any given strings
-	- Finding the shortest string containing all given strings (solucao 2^n * n esperada)
-
-	- Como AhoCorasick automata (por exemplo, dada uma sequencia de caracteres, diz se alguma string do set ja foi vista)
-*/
-
 struct AhoCorasick {
 
 	struct node {
