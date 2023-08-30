@@ -147,10 +147,10 @@ public:
 		return H;
 	}
 	
-	/*Angulo em forma de fracao reduzida entre o vetor Op (p é o ponto)
+	/*Angulo em forma de fracao reduzida entre o vetor Op (p eh o ponto)
 	 e o eixo x, se paralelo ao eixo x retorna (1,0) ou (-1,0)
 	 se paralelo ao eixo y retorna (0,1) ou (0,-1)
-	 SÓ FUNCIONA PARA PONTOS INTEIROS*/ 
+	 SO FUNCIONA PARA PONTOS INTEIROS*/ 
 	static ii ang (Point p) {
 		int a = p.x, b = p.y;
 		if (a == 0) return mk(0, b/abs(b));

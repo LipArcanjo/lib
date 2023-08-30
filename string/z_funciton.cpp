@@ -21,5 +21,5 @@ void z_function(vector<int> &z, string &s){
 //// Achar pattern P em S -->
 //// P#S
 
-///z-functions -> z[i] eh o tamanho da maior substring de S que começa em
+///z-functions -> z[i] eh o tamanho da maior substring de S que comeca em
 //s[i] e eh um prefixo de S.
