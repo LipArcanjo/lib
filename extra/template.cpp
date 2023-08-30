@@ -43,3 +43,8 @@ int main(){
 
     return 0;
 }
+
+/*
+Makefile:
+CXXFLAGS=-Wall -Wextra -Wshadow -g -pedantic -fsanitize=address,undefined -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUGPEDANTIC -std=gnu++17
+*/
