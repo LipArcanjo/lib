@@ -50,7 +50,7 @@ struct AhoCorasick {
 				if(aho[j].ch.count(c)) j = aho[j].ch[c];
 			}
 
-			// Se descomentado, guarda a quantidade de strings que são sufixo da string representada por esse no
+			// Se descomentado, guarda a quantidade de strings que sao sufixo da string representada por esse no
 			// aho[cur].cnt = aho[cur].end + aho[aho[cur].suf].cnt;
 
 			for(auto & [c, v] : aho[cur].ch) {
