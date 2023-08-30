@@ -1,5 +1,5 @@
 //nao faco ideia como funciona
-//https://github.com/yosupo06/library-checker-problems/blob/master/math/sum_of_floor_of_linear/sol/correct.cpp
+//https://github.com/yosupo06/library-checker-problems/ blob/master/math/sum_of_floor_of_linear /sol/correct.cpp
 /**
  * a / b, a // b : 
  * sum_{i = 0..n-1} floor((ai + b) //

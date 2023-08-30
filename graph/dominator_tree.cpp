@@ -1,4 +1,4 @@
-//implementaion from https://tanujkhattar.wordpress.com/2016/01/11/dominator-tree-of-a-directed-graph/
+//implementaion from https://tanujkhattar.wordpress.com/ 2016/01/11/dominator-tree-of-a-directed-graph/
 //tested at problem https://codeforces.com/gym/102920/problem/F
 //dominator tree is stored at tree[MAXN].
 
