@@ -1,10 +1,10 @@
 //nao faco ideia como funciona
 //https://github.com/yosupo06/library-checker-problems/blob/master/math/sum_of_floor_of_linear/sol/correct.cpp
 /**
- * a / b, a // b : 小数, 整数としての割り算
- * sum_{i = 0..n-1} floor((ai + b) // m) を求める
+ * a / b, a // b : 
+ * sum_{i = 0..n-1} floor((ai + b) //
  * 
- * 線分 y = (ax + b) / m, (0 <= x <= n)は真下に何個(完全な)正方形を含むか？と同値
+ * y = (ax + b) / m, (0 <= x <= n)
  */
 ll sum_of_floor(ll n, ll m, ll a, ll b) {
     ll ans = 0;
