@@ -1,5 +1,6 @@
 //copied from https://github.com/brunomaletta/Biblioteca/tree/master
 //I just changed somethings to works on my lib
+//copy and paste this and comeco.tex on their github and use their getlatex.sh
 #include <bits/stdc++.h>
 #include <dirent.h>
 
