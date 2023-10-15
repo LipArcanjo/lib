@@ -1,42 +1,4 @@
-#ifdef LOCAL
-#define _GLIBCXX_DEBUG 1
-#define dbg(...) cerr << "LINE(" << __LINE__ << ") -> [" << #__VA_ARGS__ << "]: [", DBG(__VA_ARGS__)
-#else
-#define dbg(...) 0
-#endif
- 
-#if 0
-    #include <ext/pb_ds/assoc_container.hpp>
-    #include <ext/pb_ds/tree_policy.hpp>
- 
-    template<class T>
-    using ordered_set = __gnu_pbds::tree<T, __gnu_pbds::null_type, std::less<T>, __gnu_pbds::rb_tree_tag,
-        __gnu_pbds::tree_order_statistics_node_update>;
-#endif
- 
-#include <vector> 
-#include <list> 
-#include <map> 
-#include <set> 
-#include <queue>
-#include <stack> 
-#include <bitset> 
-#include <algorithm> 
-#include <numeric> 
-#include <complex>
-#include <utility> 
-#include <sstream> 
-#include <iostream> 
-#include <iomanip> 
-#include <cstdio> 
-#include <cmath> 
-#include <cstdlib> 
-#include <ctime> 
-#include <cstring>
-#include <random>
-#include <chrono>
-#include <cassert>
- 
+#include<bits/stdc++.h>
 using namespace std;
  
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
@@ -59,11 +21,6 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
  
-template<typename T, typename U> T &ctmax(T &x, const U &y){ return x = max<T>(x, y); }
-template<typename T, typename U> T &ctmin(T &x, const U &y){ return x = min<T>(x, y); }
- 
-mt19937 rng((unsigned)chrono::steady_clock::now().time_since_epoch().count());
- 
 #define ts to_string
 str ts(char c) { return str(1,c); }
 str ts(bool b) { return b ? "true" : "false"; }
@@ -79,9 +36,6 @@ template<class A> void pr(A x) { cout << ts(x); }
 template<class H, class... T> void pr(const H& h, const T&... t) { pr(h); pr(t...); }
 void ps() { pr("\n"); }
 template<class H, class... T> void ps(const H& h, const T&... t) { pr(h); if (sizeof...(t)) pr(" "); ps(t...); }
- 
-void DBG() { cerr << "]" << endl; }
-template<class H, class... T> void DBG(H h, T... t) {cerr << ts(h); if (sizeof...(t)) cerr << ", ";  DBG(t...); }
  
 tcTU> void re(pair<T,U>& p);
 tcT> void re(V<T>& v);
@@ -105,9 +59,6 @@ int main() {
   if (multitest()) cin >> t;
   for (; t; t--) solve();
 }
- 
- 
- 
  
 typedef complex<double> C;
 typedef vector<double> vd;
@@ -192,16 +143,6 @@ void linear_recurrence(vl& P, vl& Q, int n) {
     }
   }
 }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
 constexpr bool multitest() {return 0;}
  

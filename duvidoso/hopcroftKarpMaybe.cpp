@@ -1,6 +1,7 @@
 /*
 made by nor yosupo
-funciona matching, nao sei vertex cover
+lento demais, lembro de ter tomado tle ou WA em algum problema
+ta aqui pelo codigo do vertex cover mesmo
 
 */
 
