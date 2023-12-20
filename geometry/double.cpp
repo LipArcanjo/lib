@@ -1,6 +1,6 @@
 // Double geometry
 // WARNING: INPUT IN DOUBLE IS SLOW, IF POSSIBLE READ WITH INTEGER
-
+#define all(x) x.begin(),x.end()
 constexpr double EPS = 1e-10;
 
 bool zero(double x) {
@@ -275,7 +275,7 @@ struct circle {
 
 vector<double> intercircles(vector<circle> c){
 	vector<double> r(c.size()+1); // r[k]: area covered by at least k circles
-	for(int i=0;i<int(c.size());i++) {
+	for(int i=0;i<int32_t(c.size());i++) {
 		int k=1;
 		auto cmp = [&](point a, point b) {
 			return ang_cmp(a - c[i].o, b - c[i].o);
@@ -284,7 +284,7 @@ vector<double> intercircles(vector<circle> c){
 			{c[i].o + point(1,0) * c[i].r, 0},
 			{c[i].o - point(1,0) * c[i].r, 0}
 		};
-		for(int j=0;j<int(c.size());j++) if(j != i) {
+		for(int j=0;j<int32_t(c.size());j++) if(j != i) {
 			bool b0 = c[i].in(c[j]), b1 = c[j].in(c[i]);
 			if( b0 && ( !b1|| i<j ) ) k++;
 			else if( !b0 && !b1 ) {
@@ -298,7 +298,7 @@ vector<double> intercircles(vector<circle> c){
 		}
 		sort(p.begin(),p.end(),
 			[&](pair<point,int> a, pair<point,int> b){return cmp(a.first, b.first);});
-		for(int j=0;j<int(p.size());j++) {
+		for(int j=0;j<int32_t(p.size());j++) {
 			point p0 = p[j ? j-1 : p.size()-1].first, p1 = p[j].first;
 			double a = (p0-c[i].o).angle(p1-c[i].o);
 			r[k] += (p0.x-p1.x) * (p0.y+p1.y) / 2 + c[i].r * c[i].r * (a-sin(a)) / 2;
