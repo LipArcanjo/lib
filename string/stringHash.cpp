@@ -13,7 +13,7 @@ int mul(int a, int b){
 int pw(int a, int n){
     int ret = 1;
     while(n > 0){
-        if(n&1 == 1){
+        if(n&1){
             ret = mul(ret, a);
         }
         a = mul(a,a);

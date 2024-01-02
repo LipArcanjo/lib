@@ -1,0 +1,31 @@
+# Using Multiple Windows
+
+:e <filepath> -> open new file
+
+:b <filepath> -> change through files opened with :e
+
+:tabe <filepath> -> creates a Tab to us multiples files
+	-> :tabn and :tabp to change tabs
+
+:sp <filepath> -> creates multiple Windows.
+	-> Use Ctrl+W and [h,j,k,l] to change through windows
+
+# Navigating
+
+f<char> -> jumps to next <char> in the line
+t<char> -> jumps to the previous character of the next <char> in the line
+
+#Utils g
+
+gv -> Reselect last visual selection, really useful to reselect a copy paste
+guw -> to lower case the next word
+gUw -> to upper case the next word
+gf -> open file in the cursor if find it
+
+#Utils
+
+di" -> Delete in "
+di( -> Delete inside (
+yi" -> yank inside "
+
+https://gist.github.com/tuxfight3r/0dca25825d9f2608714b
