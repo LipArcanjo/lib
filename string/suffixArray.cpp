@@ -1,93 +1,34 @@
-/*
-made by turci
-funciona
+// Suffix Array
+// 
+// Description: Algorithm that sorts the suffixes of a string.
+//              The last character of the string to be sorted 
+//              must be the smallest!
+// Complexity: O(|s| log(|s|)).
+//
 
-para mudar de string para vector<int>, troque os comentarios
-*/
-vector<int> build_suffix_array( string &s /*vector<int>&s*/  ) {
-	s += '$';//s.pb(-INF);
-	int n = s.size();
-	vector<int> head(n), a(n), a1(n), c(n), c1(n);
-
-	for(int i = 0; i < n; i++) a[i] = i;
-
-	sort(a.begin(), a.end(), [&](int i, int j) {
-		return s[i] < s[j];
-	});
-
-	int cc = 0;
-    
-	for(int i = 0; i < n; ++i) {
-		if(i == 0 || s[a[i]] != s[a[i-1]]) {
-			c[a[i]] = cc; 
-			head[cc++] = i;
-		} else{
-            c[a[i]] = c[a[i-1]];
-        } 
-	}
-
-	for(int l = 1; l < n; l *= 2) {
-
-		for(int i = 0; i < n; i++) {
-			int j = a[i] - l;
-            if(j < 0) j += n;
-
-			a1[head[c[j]]++] = j;
-		}
-		cc = 0;
-
-		head.assign(head.size(), 0);
-		for(int i = 0; i < n; i++) {
-
-            int i_l = a1[i]+l;
-            if(i_l >= n) i_l -= n;
-
-            int j_l = a1[i-1]+l;
-            if(j_l >= n) j_l -= n; 
-
-			if(i == 0 || c[a1[i]] != c[a1[i-1]] || c[i_l] != c[j_l]) {
-				head[cc] = i;
-				c1[a1[i]] = cc++;
-			} else c1[a1[i]] = c1[a1[i-1]];
-		}
-
-		a.assign(a1.begin(), a1.end());
-		c.assign(c1.begin(), c1.end());
-
-	}
-
-    s.pop_back();
-    a.erase( a.begin() );
-    
-
-	return a;
-}
-
-vector<int> build_lcp( string s /*vector<int> s*/, vector<int> p){
-
-    int n = s.size();
-
-    vector<int> rank(n,0);
-    for(int i = 0; i < n; i++){
-        rank[p[i]] = i;
-    }
-
-    int k = 0;
-    vector<int> lcp(n-1,0);
-    for(int i = 0; i < n; i++){
-        if(rank[i] == n-1){
-            k = 0;
-            continue;
+// Suffix Array da KTH
+struct SuffixArray {
+    string s;
+    vector<int> sa, lcp;
+    SuffixArray () {}
+    SuffixArray(string v, int lim=256) { // or basic_string<int>
+        s = v;
+        int n = s.size(), k = 0, a, b;
+        vector<int> x(all(s)+1), y(n), ws(max(n, lim)), rank(n);
+        sa = lcp = y; iota(all(sa), 0);
+        for (int j = 0, p = 0; p < n; j = max<int>(1, j * 2), lim = p) {
+            p = j; iota(all(y), n - j);
+            for(int i = 0; i < n; i++) if (sa[i] >= j) y[p++] = sa[i] - j;
+            fill(all(ws), 0);
+            for(int i = 0; i < n; i++) ws[x[i]]++;
+            for(int i = 1; i < lim; i++) ws[i] += ws[i - 1];
+            for (int i = n; i--;) sa[--ws[x[y[i]]]] = y[i];
+            swap(x, y); p = 1; x[sa[0]] = 0;
+            for(int i = 1; i < n; i++) a = sa[i - 1], b = sa[i], x[b] =
+                (y[a] == y[b] && y[a + j] == y[b + j]) ? p - 1 : p++;
         }
-        int j = p[rank[i]+1];
-        while (i + k < n && j + k < n && s[i+k] == s[j+k]){
-            k++;
-        }
-        lcp[rank[i]] = k;
-
-        if(k) k--;            
+        for (int i = 1; i < n; i++) rank[sa[i]] = i;
+        for (int i = 0, j; i < n - 1; lcp[rank[i++]] = k)
+            for (k && k--, j = sa[rank[i] - 1]; s[i + k] == s[j + k]; k++);
     }
-
-    return lcp;
-
-}
+};
