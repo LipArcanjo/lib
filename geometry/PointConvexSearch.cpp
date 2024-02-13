@@ -82,24 +82,6 @@ int convex_hull(vector<Point> &P, int &ini_up){
 	return k;
 }
 
-int convex_hull1(vector<Point> &P, int &ini_up){
-	int n = P.size();
-	C[0] = P[0];
-	int k = 1;
-	for(int i = 1; i < n; i++){
-		while( k >= 2 && cross(C[k-2], C[k-1], P[i]) <= 0ll) k--;
-		C[k++] = P[i];
-	}
-	ini_up = k-1;
-	int ch = k + 1;
-	
-	for(int i = n-2; i >= 0; i--){
-		while(k >= ch && cross(C[k-2], C[k-1], P[i]) <= 0ll) k--;
-		C[k++] = P[i];
-	}
-	return k;
-}
-
 //retorna indice do ponto mais proximo da coordenada x pela direita
 int find_lower_hull(int ini_up, Point &P){
 	int l = 0;
@@ -129,14 +111,4 @@ int find_upper_hull(int ini_up, int fim, Point &P){
 		}
 	}
 	return r;
-}
-
-bool inside_triang(Point &A, Point &B, Point &C, Point &D){
-	ll a1 = (A-C)^(D-C);
-	if(a1 <= 0ll) return false;
-	return true;
-}
-
-Point mean(Point &A, Point &B){
-	return (A+B)/2ll;
 }
