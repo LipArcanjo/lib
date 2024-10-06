@@ -16,7 +16,7 @@ struct Complex {
 	void operator /= (ld o) { real /= o, imag /= o; }
 };
 
-typedef std::vector<Complex> CVector;
+typedef vector<Complex> CVector;
 
 const int ms = 1 << 22;
 
@@ -49,12 +49,12 @@ CVector fft(CVector a, bool inv = false) {
 	int n = a.size();
 	pre(n);
 	if(inv) {
-		std::reverse(a.begin() + 1, a.end());
+		reverse(a.begin() + 1, a.end());
 	}
 	for(int i = 0; i < n; i++) {
 		int to = bits[i];
 		if(to > i) {
-			std::swap(a[to], a[i]);
+			swap(a[to], a[i]);
 		}
 	}
 	for(int len = 1; len < n; len *= 2) {
@@ -98,18 +98,23 @@ void ifft2in1(CVector &a, CVector &b) {
 }
 
 
-std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vector<long long> &b, long long cut = 1 << 15) {
+vector<long long> mod_mul(const vector<long long> &a, const vector<long long> &b, long long cut = 1 << 15) {
 	// TODO cut memory here by /2
-	int n = (int) a.size();
+	int n = 1;
+	while (n - 1 < (int) a.size() + (int) b.size() - 2) n += n;
 	CVector C[4];
 	for(int i = 0; i < 4; i++) {
 		C[i].resize(n);
 	}
 	for(int i = 0; i < n; i++) {
-		C[0][i] = a[i] % cut;
-		C[1][i] = a[i] / cut;
-		C[2][i] = b[i] % cut;
-		C[3][i] = b[i] / cut;
+		if(i < (int) a.size()) {
+			C[0][i] = a[i] % cut;
+			C[1][i] = a[i] / cut;
+		}
+		if(i < (int) b.size()) {
+			C[2][i] = b[i] % cut;
+			C[3][i] = b[i] / cut;
+		}
 	}
 	fft2in1(C[0], C[1]);
 	fft2in1(C[2], C[3]);
@@ -121,7 +126,7 @@ std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vecto
 	}
 	ifft2in1(C[0], C[1]);
 	ifft2in1(C[2], C[3]);
-	std::vector<long long> ans(n, 0);
+	vector<long long> ans(n, 0);
 	for(int i = 0; i < n; i++) {
 		// if there are negative values, care with rounding
 		ans[i] += (long long) (C[0][i].real + 0.5);
@@ -131,7 +136,7 @@ std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vecto
 	return ans;
 }
 
-std::vector<int> mul(const std::vector<int> &a, const std::vector<int> &b) {
+vector<int> mul(const vector<int> &a, const vector<int> &b) {
 	int n = 1;
 	while (n - 1 < (int) a.size() + (int) b.size() - 2) n += n;
 	CVector poly(n);
@@ -148,10 +153,9 @@ std::vector<int> mul(const std::vector<int> &a, const std::vector<int> &b) {
 		poly[i] *= poly[i];
 	}
 	poly = fft(poly, true);
-	std::vector<int> c(n, 0);
+	vector<int> c(n, 0);
 	for(int i = 0; i < n; i++) {
 		c[i] = (int) (poly[i].imag / 2 + 0.5);
 	}
-	while (c.size() > 0 && c.back() == 0) c.pop_back();
 	return c;
 }
